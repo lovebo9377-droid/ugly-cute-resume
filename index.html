@@ -47,9 +47,11 @@
   .portrait-area { min-height: 430px; display: grid; place-items: center; position: relative; }
   .portrait { width: min(360px, 78vw); aspect-ratio: 1; background: var(--blue); border: 3px solid var(--ink); border-radius: 44% 56% 47% 53% / 55% 43% 57% 45%; box-shadow: 9px 10px 0 var(--ink); transform: rotate(3deg); position: relative; animation: wobble 5s ease-in-out infinite; overflow: hidden; }
   .portrait img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 38%; transform: scale(1.05); }
-  .sticker { position: absolute; border: 2px solid var(--ink); background: white; border-radius: 14px; padding: 7px 12px; font-weight: 900; box-shadow: 3px 4px 0 var(--ink); }
-  .sticker.s1 { top: 55px; right: 8%; transform: rotate(8deg); background: var(--yellow); }
-  .sticker.s2 { bottom: 58px; left: 1%; transform: rotate(-8deg); background: var(--pink); }
+  .sticker { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 6px; border: 2px solid var(--ink); background: white; border-radius: 14px; padding: 7px 11px; font-weight: 900; box-shadow: 3px 4px 0 var(--ink); white-space: nowrap; }
+  .sticker.s1 { top: 38px; left: 1%; transform: rotate(-8deg); background: var(--yellow); }
+  .sticker.s2 { top: 110px; right: 0; transform: rotate(7deg); background: var(--pink); }
+  .sticker.s3 { bottom: 82px; left: 0; transform: rotate(-6deg); background: #d9f4f3; }
+  .sticker.s4 { bottom: 23px; right: 1%; transform: rotate(6deg); background: #e7dcff; }
   .spark { position: absolute; font-size: 2rem; animation: float 3s ease-in-out infinite; }
   .spark.one { top: 14%; left: 10%; }
   .spark.two { bottom: 12%; right: 11%; animation-delay: .7s; }
@@ -106,13 +108,13 @@
   <section class="hero">
     <div>
       <span class="eyebrow">你好呀！欢迎来到我的小窝</span>
-      <h1>我是<br><span class="name">你的名字</span></h1>
+      <h1>我是<br><span class="name">李文龙</span></h1>
       <p class="lead">一个正在认真长大的「你的职业 / 身份」。会一点点创造，会很多点好奇，偶尔把咖啡放凉。</p>
       <div class="actions"><a class="btn primary" href="#projects">看看我的作品 ↓</a><a class="btn secondary" href="#contact">跟我打个招呼</a></div>
     </div>
-    <div class="portrait-area" aria-label="丑萌动漫风格的个人头像">
+    <div class="portrait-area" aria-label="丑萌动漫风格的个人头像和兴趣贴纸">
       <span class="spark one">✦</span><div class="portrait"><img src="resume-avatar.png" alt="戴黑框眼镜、表情呆萌的丑萌动漫头像"></div>
-      <span class="sticker s1">今日状态：努力！</span><span class="sticker s2">有点怪，但很友善</span><span class="spark two">★</span>
+      <span class="sticker s1">🛹 滑板</span><span class="sticker s2">🎤 麦克风</span><span class="sticker s3">📷 相机</span><span class="sticker s4">📖 展开的书籍</span><span class="spark two">★</span>
     </div>
   </section>
 
@@ -148,7 +150,7 @@
   </section>
 
   <section id="contact">
-    <div class="contact reveal"><span class="eyebrow">任务结束？才没有！</span><h2 style="margin:18px 0 8px">一起做点有趣的事？</h2><p>邮箱：yourname@example.com　·　社交账号：@yourname</p><a class="btn primary" href="mailto:yourname@example.com">给我发邮件 ✉</a></div>
+    <div class="contact reveal"><span class="eyebrow">任务结束？才没有！</span><h2 style="margin:18px 0 8px">一起做点有趣的事？</h2><p>邮箱：<a href="mailto:lovebo9377@gmail.com">lovebo9377@gmail.com</a></p><a class="btn primary" href="mailto:lovebo9377@gmail.com">给我发邮件 ✉</a></div>
   </section>
 </main>
 <footer class="wrap">手工制作中 · 今天也在努力变成更好的自己 ☻</footer>
