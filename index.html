@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff3dc">
+<title>歪歪的个人简历</title>
+<style>
+  :root {
+    --paper: #fff3dc;
+    --ink: #272321;
+    --pink: #ff8fa3;
+    --yellow: #ffd45c;
+    --blue: #93d9df;
+    --green: #b4d985;
+    --lilac: #c8b6ed;
+    --shadow: 5px 6px 0 var(--ink);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: radial-gradient(#e9d9bd 1px, transparent 1px);
+    background-size: 19px 19px;
+    font-family: "Trebuchet MS", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { width: min(1080px, calc(100% - 32px)); margin: auto; }
+  header { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { font-weight: 1000; font-size: 1.15rem; transform: rotate(-3deg); }
+  nav { display: flex; gap: 10px; flex-wrap: wrap; }
+  nav a { background: white; border: 2px solid var(--ink); border-radius: 999px; padding: 5px 13px; text-decoration: none; box-shadow: 2px 3px 0 var(--ink); font-size: .9rem; }
+  nav a:hover { transform: translateY(-2px) rotate(2deg); background: var(--yellow); }
+  .hero { min-height: 580px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 22px; padding: 28px 0 70px; }
+  .eyebrow { display: inline-block; background: var(--yellow); border: 2px solid var(--ink); padding: 5px 12px; border-radius: 12px 17px 10px 16px; font-weight: 800; transform: rotate(-2deg); }
+  h1 { margin: 20px 0 12px; max-width: 650px; font-size: clamp(3.3rem, 8vw, 6.6rem); line-height: .95; letter-spacing: -.07em; }
+  h1 .name { color: var(--pink); -webkit-text-stroke: 2px var(--ink); text-shadow: 3px 4px 0 var(--ink); display: inline-block; transform: rotate(-3deg); }
+  .lead { font-size: 1.18rem; max-width: 520px; }
+  .actions { display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap; }
+  .btn { display: inline-block; border: 2px solid var(--ink); border-radius: 14px; padding: 10px 17px; font-weight: 900; text-decoration: none; box-shadow: var(--shadow); transition: transform .15s; }
+  .btn:hover { transform: translate(3px, 3px) rotate(-1deg); box-shadow: 2px 3px 0 var(--ink); }
+  .btn.primary { background: var(--pink); }
+  .btn.secondary { background: white; }
+  .portrait-area { min-height: 430px; display: grid; place-items: center; position: relative; }
+  .portrait { width: min(360px, 78vw); aspect-ratio: 1; background: var(--blue); border: 3px solid var(--ink); border-radius: 44% 56% 47% 53% / 55% 43% 57% 45%; box-shadow: 9px 10px 0 var(--ink); transform: rotate(3deg); position: relative; animation: wobble 5s ease-in-out infinite; overflow: hidden; }
+  .portrait img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 38%; transform: scale(1.05); }
+  .sticker { position: absolute; border: 2px solid var(--ink); background: white; border-radius: 14px; padding: 7px 12px; font-weight: 900; box-shadow: 3px 4px 0 var(--ink); }
+  .sticker.s1 { top: 55px; right: 8%; transform: rotate(8deg); background: var(--yellow); }
+  .sticker.s2 { bottom: 58px; left: 1%; transform: rotate(-8deg); background: var(--pink); }
+  .spark { position: absolute; font-size: 2rem; animation: float 3s ease-in-out infinite; }
+  .spark.one { top: 14%; left: 10%; }
+  .spark.two { bottom: 12%; right: 11%; animation-delay: .7s; }
+  section { padding: 48px 0; scroll-margin-top: 20px; }
+  .section-title { display: flex; align-items: baseline; gap: 12px; margin-bottom: 22px; }
+  h2 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1; margin: 0; letter-spacing: -.05em; }
+  .scribble { font-size: 1.2rem; transform: rotate(-4deg); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { border: 2px solid var(--ink); border-radius: 18px 23px 16px 21px; padding: 20px; background: white; box-shadow: var(--shadow); transform: rotate(var(--tilt, 0deg)); transition: transform .18s; }
+  .card:hover { transform: rotate(0deg) translateY(-5px); }
+  .card:nth-child(3n+1) { --tilt: -1deg; }
+  .card:nth-child(3n+2) { --tilt: 1.3deg; }
+  .card:nth-child(3n) { --tilt: -.5deg; }
+  .card.pink { background: #ffe0e5; }
+  .card.yellow { background: #fff0bd; }
+  .card.blue { background: #d9f4f3; }
+  .icon { font-size: 2rem; }
+  .card h3 { margin: 8px 0 6px; font-size: 1.25rem; }
+  .card p { margin: 0; }
+  .timeline { display: grid; gap: 14px; }
+  .event { display: grid; grid-template-columns: 125px 1fr; gap: 16px; align-items: start; }
+  .date { font-weight: 1000; background: var(--yellow); border: 2px solid var(--ink); border-radius: 13px; padding: 7px 10px; text-align: center; box-shadow: 3px 3px 0 var(--ink); }
+  .event .card { transform: rotate(.4deg); }
+  .skills { display: flex; gap: 11px; flex-wrap: wrap; }
+  .chip { border: 2px solid var(--ink); border-radius: 999px; background: white; padding: 7px 14px; font-weight: 900; box-shadow: 3px 3px 0 var(--ink); transform: rotate(var(--r)); }
+  .contact { background: var(--lilac); border: 2px solid var(--ink); border-radius: 24px; padding: clamp(22px, 5vw, 42px); box-shadow: 7px 8px 0 var(--ink); position: relative; overflow: hidden; }
+  .contact::after { content: "✿"; position: absolute; right: 22px; bottom: -42px; font-size: 10rem; opacity: .3; transform: rotate(20deg); }
+  footer { padding: 35px 0 48px; text-align: center; font-weight: 700; }
+  .reveal { opacity: 0; transform: translateY(18px) rotate(-1deg); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.8,.2,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0) rotate(var(--tilt, 0deg)); }
+  @keyframes wobble { 0%,100% { transform: rotate(5deg) translateY(0); } 50% { transform: rotate(1deg) translateY(-9px); } }
+  @keyframes float { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
+  @media (max-width: 760px) {
+    header { align-items: flex-start; flex-direction: column; }
+    .hero { grid-template-columns: 1fr; padding-top: 18px; }
+    .portrait-area { min-height: 360px; }
+    .grid { grid-template-columns: 1fr; }
+    .event { grid-template-columns: 1fr; gap: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="logo" href="#top" aria-label="回到顶部">歪歪简历屋 ✦</a>
+  <nav aria-label="页面导航">
+    <a href="#about">关于我</a><a href="#experience">经历</a><a href="#projects">作品</a><a href="#contact">找我玩</a>
+  </nav>
+</header>
+<main id="top" class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">你好呀！欢迎来到我的小窝</span>
+      <h1>我是<br><span class="name">你的名字</span></h1>
+      <p class="lead">一个正在认真长大的「你的职业 / 身份」。会一点点创造，会很多点好奇，偶尔把咖啡放凉。</p>
+      <div class="actions"><a class="btn primary" href="#projects">看看我的作品 ↓</a><a class="btn secondary" href="#contact">跟我打个招呼</a></div>
+    </div>
+    <div class="portrait-area" aria-label="丑萌动漫风格的个人头像">
+      <span class="spark one">✦</span><div class="portrait"><img src="resume-avatar.png" alt="戴黑框眼镜、表情呆萌的丑萌动漫头像"></div>
+      <span class="sticker s1">今日状态：努力！</span><span class="sticker s2">有点怪，但很友善</span><span class="spark two">★</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title"><h2>关于我</h2><span class="scribble">本人比证件照可爱一点点 :)</span></div>
+    <div class="grid">
+      <article class="card pink reveal"><div class="icon">🧃</div><h3>我是谁</h3><p>用三句话介绍自己：我喜欢什么、擅长什么，以及最近在努力做什么。</p></article>
+      <article class="card yellow reveal"><div class="icon">🪴</div><h3>我在寻找</h3><p>理想的机会、合作伙伴，或一个能让我继续成长的新挑战。</p></article>
+      <article class="card blue reveal"><div class="icon">🐛</div><h3>隐藏技能</h3><p>把奇怪的点子变成真的。也可以在这里放一个让人记住你的小趣事。</p></article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-title"><h2>一路走来</h2><span class="scribble">经验值 +1 +1 +1</span></div>
+    <div class="timeline">
+      <div class="event reveal"><div class="date">2024 — 现在</div><article class="card"><h3>最近的工作 / 学习</h3><p>写下你的职位、学校或正在投入的事情，以及一项做得不错的成果。</p></article></div>
+      <div class="event reveal"><div class="date">2022 — 2024</div><article class="card"><h3>上一段经历</h3><p>挑一件最能代表你的事：遇到了什么问题，你做了什么，最后有什么变化。</p></article></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title"><h2>我的作品</h2><span class="scribble">点子从这里长出来！</span></div>
+    <div class="grid">
+      <article class="card yellow reveal"><div class="icon">🛠️</div><h3>小小项目 A</h3><p>项目是做什么的？你负责哪部分？结果如何？放上作品链接。</p></article>
+      <article class="card pink reveal"><div class="icon">🎨</div><h3>小小项目 B</h3><p>可以是网站、设计、研究、社团活动，或任何你想展示的成果。</p></article>
+      <article class="card blue reveal"><div class="icon">🚀</div><h3>下一站计划</h3><p>正在学习的新技能，或一个还在慢慢孵化的奇妙计划。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><h2>我的工具箱</h2><span class="scribble">会用这些小道具</span></div>
+    <div class="skills"><span class="chip" style="--r:-2deg">技能一</span><span class="chip" style="--r:2deg">技能二</span><span class="chip" style="--r:-1deg">技能三</span><span class="chip" style="--r:3deg">还在学习...</span></div>
+  </section>
+
+  <section id="contact">
+    <div class="contact reveal"><span class="eyebrow">任务结束？才没有！</span><h2 style="margin:18px 0 8px">一起做点有趣的事？</h2><p>邮箱：yourname@example.com　·　社交账号：@yourname</p><a class="btn primary" href="mailto:yourname@example.com">给我发邮件 ✉</a></div>
+  </section>
+</main>
+<footer class="wrap">手工制作中 · 今天也在努力变成更好的自己 ☻</footer>
+<script>
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(item => observer.observe(item));
+  } else {
+    items.forEach(item => item.classList.add('visible'));
+  }
+</script>
+</body>
+</html>
